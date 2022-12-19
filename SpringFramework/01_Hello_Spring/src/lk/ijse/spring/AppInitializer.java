@@ -1,10 +1,7 @@
 package lk.ijse.spring;
 
 import lk.ijse.spring.config.AppConfig;
-import lk.ijse.spring.pojo.BasicDataSource;
-import lk.ijse.spring.pojo.DbConnection;
-import lk.ijse.spring.pojo.ItemController;
-import lk.ijse.spring.pojo.SpringBean;
+import lk.ijse.spring.pojo.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.swing.*;
@@ -55,6 +52,10 @@ public class AppInitializer {
         //can we change the bean id
         ItemController item= (ItemController) ctx.getBean("item");
         System.out.println(item);
+
+        SpringBeanTwo beantwo = (SpringBeanTwo) ctx.getBean("beantwo");
+        System.out.println(beantwo);
+
 
         ctx.close();
 
