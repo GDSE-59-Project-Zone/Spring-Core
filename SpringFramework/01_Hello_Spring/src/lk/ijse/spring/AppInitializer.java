@@ -3,6 +3,7 @@ package lk.ijse.spring;
 import lk.ijse.spring.config.AppConfig;
 import lk.ijse.spring.pojo.BasicDataSource;
 import lk.ijse.spring.pojo.DbConnection;
+import lk.ijse.spring.pojo.ItemController;
 import lk.ijse.spring.pojo.SpringBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -18,7 +19,7 @@ public class AppInitializer {
         ctx.refresh();
 
 
-        //Cotext Innovocation
+        //Context invocation
         SpringBean bean1 = ctx.getBean(SpringBean.class);
         bean1.test();
         System.out.println(bean1);
@@ -34,7 +35,7 @@ public class AppInitializer {
         System.out.println(bean4);//singleton
         bean3.accessPool();
 
-        //What are the methods of context innovocation
+        //What are the methods of context invocation
         //01. Class Type
         BasicDataSource bds = ctx.getBean(BasicDataSource.class);
         System.out.println(bds);
@@ -50,6 +51,10 @@ public class AppInitializer {
         BasicDataSource cds2 = (BasicDataSource) ctx.getBean("basicDataSource");
         System.out.println(cds2);
 
+
+        //can we change the bean id
+        ItemController item= (ItemController) ctx.getBean("item");
+        System.out.println(item);
 
         ctx.close();
 
