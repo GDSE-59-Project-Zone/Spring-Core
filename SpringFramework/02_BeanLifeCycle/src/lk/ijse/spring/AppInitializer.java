@@ -7,8 +7,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AppInitializer {
     public static void main(String[] args) {
 
-
-
         AnnotationConfigApplicationContext ctx= new AnnotationConfigApplicationContext();
         ctx.register(AppConfig.class);
         ctx.refresh();
@@ -19,18 +17,22 @@ public class AppInitializer {
 
 
         //Run Something just before jvm is going to shut-down (Hooking Process)
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            @Override
-            public void run() {
-                ctx.close();
-            }
-        }));
-        //Spring Alternative for above code
-        ctx.registerShutdownHook();
+//        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                ctx.close();
+//            }
+//        }));
+
+        //Spring Alternative for the above code
+        ctx.registerShutdownHook(); //context will be closed just before jvm shut-down
 
 
-        SpringBeanOne bean2 = ctx.getBean(SpringBeanOne.class);
-        System.out.println(bean2);
+        //so you can request beans anywhere without hesitation
+        SpringBeanOne sb1 = ctx.getBean(SpringBeanOne.class);
+        SpringBeanOne sb2 = ctx.getBean(SpringBeanOne.class);
+        System.out.println(sb1);
+        System.out.println(sb2);
 
 
     }
