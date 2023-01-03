@@ -4,12 +4,17 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
+@Component
+//@Primary
 public class C implements BSuper, BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     public C(){
         System.out.println("Instantiated: C");
     }
+
     @Override
     public void callMe() {
         System.out.println("C Call Me Method Invoked");
