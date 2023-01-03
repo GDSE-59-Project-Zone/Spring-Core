@@ -15,7 +15,9 @@ public class AppConfig { // a source a spring bean definitions
     public SpringBeanTwo beanTwo(){
         //Inter-bean dependencies
         SpringBeanThree b1 = beanThree(); //inter-bean dependency invocation
+        SpringBeanThree b2 = beanThree();
         System.out.println(b1);
+        System.out.println(b2);
         return new SpringBeanTwo();
     }
 
