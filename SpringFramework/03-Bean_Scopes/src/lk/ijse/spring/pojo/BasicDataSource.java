@@ -8,40 +8,37 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-//@Scope("singleton")
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class SpringBeanOne implements BeanNameAware,BeanFactoryAware, ApplicationContextAware, InitializingBean,DisposableBean {
+public class BasicDataSource implements BeanNameAware,BeanFactoryAware, ApplicationContextAware, InitializingBean,DisposableBean {
 
-    public SpringBeanOne(){
-        System.out.println("SpringBeanOne : Instantiated");
+    public BasicDataSource(){
+        System.out.println("BasicDataSource : Instantiated");
     }
 
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("SpringBeanOne: Bean Name Aware");
+        System.out.println("BasicDataSource: Bean Name Aware");
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("SpringBeanOne: Bean Factory Aware");
+        System.out.println("BasicDataSource: Bean Factory Aware");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("SpringBeanOne: Application Context Aware");
+        System.out.println("BasicDataSource: Application Context Aware");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("SpringBeanOne: Initializing Bean : Bean is ready to use");
+        System.out.println("BasicDataSource : Initializing Bean : Bean is ready to use");
     }
 
 
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("SpringBeanOne :SpringBeanOne : Destroyed");
+        System.out.println("BasicDataSource : Destroyed");
     }
 }
