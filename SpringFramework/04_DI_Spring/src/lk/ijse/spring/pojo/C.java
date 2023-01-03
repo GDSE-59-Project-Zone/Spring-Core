@@ -4,41 +4,38 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 
-@Component
-public class B implements BSuper,BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
-    public B(){
-        System.out.println("Instantiated: B");
+public class C implements BSuper, BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+
+    public C(){
+        System.out.println("Instantiated: C");
     }
-
     @Override
-    public void callMe(){
-        System.out.println("B Call Me Method Invoked");
+    public void callMe() {
+        System.out.println("C Call Me Method Invoked");
     }
-
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("Bean Factory Aware: B");
+        System.out.println("Bean Factory Aware: C");
     }
 
     @Override
     public void setBeanName(String name) {
-        System.out.println("Bean Name Aware: B");
+        System.out.println("Bean Name Aware: C");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("Disposable Bean: B");
+        System.out.println("Disposable Bean: C");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("Initializing Bean: B");
+        System.out.println("Initializing Bean: C");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("Application Context Aware: B");
+        System.out.println("Application Context Aware: C");
     }
 }
