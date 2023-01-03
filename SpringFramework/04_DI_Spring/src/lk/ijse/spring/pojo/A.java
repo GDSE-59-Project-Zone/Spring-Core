@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class A implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
+public class A implements DI,BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
 //    @Autowired // if we satisfied the dependency through the property that is called as property injection
 //    @Qualifier("c")
@@ -33,11 +33,11 @@ public class A implements BeanNameAware, BeanFactoryAware, ApplicationContextAwa
     m.callMe();
     }
 
-    @Autowired
-    public void setInjection(BSuper bb){
-        //if we set a dependency of a class through setter method
-        this.m=bb;
-    }
+//    @Autowired
+//    public void setInjection(BSuper bb){
+//        //if we set a dependency of a class through setter method
+//        this.m=bb;
+//    }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
@@ -62,5 +62,13 @@ public class A implements BeanNameAware, BeanFactoryAware, ApplicationContextAwa
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("Application Context Aware: A");
+    }
+
+    @Autowired
+    @Override
+    public void setInjection(BSuper bb) {
+        //Interface through Injection method in DI
+        //Apply DI through Loos Coupling
+        this.m=bb;
     }
 }
