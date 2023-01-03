@@ -22,15 +22,21 @@ public class A implements BeanNameAware, BeanFactoryAware, ApplicationContextAwa
     //04. Interface through Injection
 
 
-    @Autowired
-    public A(BSuper bb){
-        //Constructor Injection (If we set the dependency injection through constructor)
-        this.m=bb;
-        System.out.println("Instantiated: A");
-    }
+//    @Autowired
+//    public A(BSuper bb){
+//        //Constructor Injection (If we set the dependency injection through constructor)
+//        this.m=bb;
+//        System.out.println("Instantiated: A");
+//    }
 
     public void sendRequestForB(){
     m.callMe();
+    }
+
+    @Autowired
+    public void setInjection(BSuper bb){
+        //if we set a dependency of a class through setter method
+        this.m=bb;
     }
 
     @Override
