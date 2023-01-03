@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class A implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     @Autowired
-    private B b;
+    private BSuper b;
 
     public A(){
         System.out.println("Instantiated: A");
