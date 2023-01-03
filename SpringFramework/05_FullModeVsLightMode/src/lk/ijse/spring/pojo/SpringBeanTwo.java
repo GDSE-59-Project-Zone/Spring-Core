@@ -29,6 +29,7 @@ public class SpringBeanTwo implements BeanNameAware, BeanFactoryAware, Applicati
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("Initializing Bean: SpringBeanTwo");
+        System.out.println("======================");
     }
 
     @Override

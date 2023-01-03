@@ -30,6 +30,7 @@ public class SpringBeanThree implements BeanNameAware, BeanFactoryAware, Applica
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("Initializing Bean: SpringBeanThree");
+        System.out.println("======================");
     }
 
     @Override
