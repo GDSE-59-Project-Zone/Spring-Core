@@ -15,6 +15,9 @@ public class PojoOne  implements InitializingBean {
     @Value("${my.project}")
     private String myProjectName;
 
+    @Value("${project.option}")
+    private String option;
+
     public PojoOne(){
         System.out.println("PojoOne:Instantiated");
     }
@@ -24,5 +27,6 @@ public class PojoOne  implements InitializingBean {
         System.out.println(myOSName);
         System.out.println(myLogName);
         System.out.println(myProjectName);
+        System.out.println(option);
     }
 }
