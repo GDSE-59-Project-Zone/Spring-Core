@@ -14,21 +14,21 @@ public class AppInitializer {
         ctx.registerShutdownHook();
 
         //From The OS
-        Map<String, String> getenv = System.getenv();
-        for (String key : getenv.keySet()) {
-            String value = getenv.get(key);
-            System.out.println(key+" : "+value);
+//        Map<String, String> getenv = System.getenv();
+//        for (String key : getenv.keySet()) {
+//            String value = getenv.get(key);
+//            System.out.println(key+" : "+value);
+//
+//        }
 
-        }
-
-        System.out.println("===============");
-
-        //Java Environment Variables
-        Properties properties = System.getProperties();
-        for (Object key : properties.keySet()) {
-            Object value = properties.get(key);
-            System.out.println(key+" : "+value);
-        }
+//        System.out.println("===============");
+//
+//        //Java Environment Variables
+//        Properties properties = System.getProperties();
+//        for (Object key : properties.keySet()) {
+//            Object value = properties.get(key);
+//            System.out.println(key+" : "+value);
+//        }
 
     }
 }

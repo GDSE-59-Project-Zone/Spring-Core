@@ -12,6 +12,9 @@ public class PojoOne  implements InitializingBean {
     @Value("${LOGNAME}")//${} property placeholder
     private String myLogName;
 
+    @Value("${my.project}")
+    private String myProjectName;
+
     public PojoOne(){
         System.out.println("PojoOne:Instantiated");
     }
@@ -20,5 +23,6 @@ public class PojoOne  implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         System.out.println(myOSName);
         System.out.println(myLogName);
+        System.out.println(myProjectName);
     }
 }
