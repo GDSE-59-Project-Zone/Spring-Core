@@ -19,7 +19,7 @@ public class PojoOne {
 //        System.out.println("PojoOne:Instantiated "+address);
 //    }
 
-    @Autowired(required = false)
+    @Autowired(required = false) // if this required attribute is set to false then the greadious constructor will be selected by the container while creating the object
     public PojoOne(@Value("Galle,Panadura,Kaluthara") String address[],@Value("C001") String id,@Value("Ramal") String name,@Value("1000") String salary){
         //otherwise you have to inject the values at runtime for the parameters
         System.out.println("PojoOne:Instantiated 1 "+address);
