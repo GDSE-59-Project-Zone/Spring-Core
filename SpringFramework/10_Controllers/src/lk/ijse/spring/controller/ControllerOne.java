@@ -15,6 +15,8 @@ public class ControllerOne {
 
     @GetMapping
     public ModelAndView invokeMe(){
+        //In here we cant return what we want
+        //We have to return a view
         return new ModelAndView("/customer");
     }
 
