@@ -12,7 +12,7 @@ public class PojoTwo implements InitializingBean {
 
     public PojoTwo(){
         System.out.println("PojoTwo:Instantiated");
-        System.out.println(myAddress);
+        System.out.println(myAddress);//null. because bean is still processing at the moment
     }
 
     @Override
