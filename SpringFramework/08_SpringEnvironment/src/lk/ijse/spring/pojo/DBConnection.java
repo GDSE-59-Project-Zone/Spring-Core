@@ -32,5 +32,10 @@ public class DBConnection implements InitializingBean {
         System.out.println(property);
         //if the property key is not matching a null will be return
 
+        String value = env.getRequiredProperty("db.user.password");
+        System.out.println(value);
+        //on this method if the key is not available exception
+        //will be throws
+
     }
 }
