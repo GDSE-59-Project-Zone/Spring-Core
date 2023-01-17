@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.*;
 public class ControllerOne {
 
     @GetMapping
-    public String testOne(){
-        System.out.println("Get Mapping Invoked");
-        return "Get Mapping Was Invoked";
+    public String testOne1(){
+        System.out.println("Get Mapping  1 Invoked");
+        return "Get 1 Mapping Was Invoked";
     }
+
+//    @GetMapping
+//    public String testOne2(){
+//        System.out.println("Get Mapping 2 Invoked");
+//        return "Get 2 Mapping Was Invoked";
+//    }
 
     @PostMapping
     public String testTwo(){
