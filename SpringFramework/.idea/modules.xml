@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/09_Spring_MVC/09_Spring_MVC.iml" filepath="$PROJECT_DIR$/09_Spring_MVC/09_Spring_MVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/10_Controllers/10_Controllers.iml" filepath="$PROJECT_DIR$/10_Controllers/10_Controllers.iml" />
       <module fileurl="file://$PROJECT_DIR$/11_Rest_Controllers/11_Rest_Controllers.iml" filepath="$PROJECT_DIR$/11_Rest_Controllers/11_Rest_Controllers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12_Mapping_Spec/12_Mapping_Spec.iml" filepath="$PROJECT_DIR$/12_Mapping_Spec/12_Mapping_Spec.iml" />
     </modules>
   </component>
 </project>
