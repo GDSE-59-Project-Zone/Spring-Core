@@ -33,7 +33,7 @@ public class ControllerEight {
 
     //to match this the request sender should send Content-Type header
     //with the value of text/html
-    @GetMapping(produces = {"text/html"})
+    @GetMapping(consumes = {"text/html"},produces = {"text/html"})
     public String testTwo(){
         return "Test Two Invoked ";
     }
@@ -43,6 +43,6 @@ public class ControllerEight {
     //headers
     @GetMapping(headers = {"Content-Type=application/json","Accept=text/html"})
     public String testThree(){
-        return "Test Two Invoked ";
+        return "Test Three Invoked ";
     }
 }
