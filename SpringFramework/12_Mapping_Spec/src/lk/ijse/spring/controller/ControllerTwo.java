@@ -41,9 +41,25 @@ public class ControllerTwo {
     }
 
     //how to access the path segments values in spring
-    @GetMapping(path = "/m5/no/{C001}")
-    public String methodFive(@PathVariable("C001") String id) {
+    //http://localhost:8080/mapping/two/m5/no/C001
+    @GetMapping(path = "/m5/no/{C001}/{ijse}")
+    public String methodFive(@PathVariable("C001") String id,@PathVariable("ijse") String name) {
         return "Get Mapping Four Invoked : "+id;
+    }
+
+    //http://localhost:8080/mapping/two/id/D001/IJSE
+    //if the path segment name and method parameter name is equal there is no need to put an alies
+    @GetMapping(path = "/id/{id}/{name}")
+    public String methodSix(@PathVariable String id,@PathVariable String name) {
+        return "Get Mapping Four Invoked : "+id+" "+name;
+    }
+
+
+    //furthermore we can validate a path variable as we want using regex
+    //() grouping syntax in regex not working properly here
+    @GetMapping(path = "/name/{name:[A-Z]{4}}/{id:[C]{1}[0-9]{3}}")
+    public String methodSeven(@PathVariable String name,@PathVariable String id) {
+        return "Get Mapping Four Invoked : "+id+" : " +name;
     }
 
 
