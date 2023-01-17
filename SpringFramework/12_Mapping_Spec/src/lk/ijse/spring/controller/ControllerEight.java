@@ -37,4 +37,12 @@ public class ControllerEight {
     public String testTwo(){
         return "Test Two Invoked ";
     }
+
+
+    //we can alternate the above method with the following approach
+    //headers
+    @GetMapping(headers = {"Content-Type=application/json","Accept=text/html"})
+    public String testThree(){
+        return "Test Two Invoked ";
+    }
 }
