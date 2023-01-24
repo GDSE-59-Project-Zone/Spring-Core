@@ -3,6 +3,7 @@ package lk.ijse.spring.controller;
 import lk.ijse.spring.dto.ItemDTO;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.repo.ItemRepo;
+import lk.ijse.spring.service.ItemServiceImpl;
 import lk.ijse.spring.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,36 +19,32 @@ public class ItemController {
 
 
     @Autowired
-    ItemRepo repo;
+    ItemServiceImpl itemService;
 
-    @Autowired
-    ModelMapper mapper;
 
     @PostMapping
     public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) {
-        Item entity = mapper.map(dto, Item.class);
-        repo.save(entity);
+        itemService.addItem(dto);
         return new ResponseUtil("200", "Successfully Added", null);
     }
 
     @GetMapping
     public ResponseUtil getAllItems() {
-        List<Item> all = repo.findAll();
-        return new ResponseUtil("200", "Successfully Loaded", all);
+        ArrayList<ItemDTO> allItems = itemService.getAllItems();
+        return new ResponseUtil("200", "Successfully Loaded", allItems);
     }
 
 
     @PutMapping
     public ResponseUtil updateItem(@RequestBody ItemDTO dto) {
-        Item entity = mapper.map(dto, Item.class);
-        repo.save(entity);
+        itemService.updateItem(dto);
         return new ResponseUtil("200", "Successfully Updated", null);
     }
 
 
     @DeleteMapping(params = "code")
     public ResponseUtil deleteItem(String code) {
-       repo.deleteById(code);
+        itemService.deleteItem(code);
         return new ResponseUtil("200", "Successfully Deleted", null);
     }
 
