@@ -1,6 +1,6 @@
 package lk.ijse.spring.config;
 
-import lk.ijse.spring.service.CustomerServiceImpl;
+import lk.ijse.spring.service.impl.CustomerServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
