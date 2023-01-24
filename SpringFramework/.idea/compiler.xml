@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="I3_SpringWithMaven" />
+        <module name="I5_Spring_Data_JPA" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="sping-data-jpa" target="1.8" />
       <module name="SpringWithMaven" target="1.8" />
     </bytecodeTargetLevel>
   </component>
