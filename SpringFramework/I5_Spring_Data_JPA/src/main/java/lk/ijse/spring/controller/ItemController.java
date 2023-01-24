@@ -1,10 +1,14 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.ItemDTO;
+import lk.ijse.spring.entity.Item;
+import lk.ijse.spring.repo.ItemRepo;
 import lk.ijse.spring.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/item")
@@ -12,6 +16,8 @@ import java.util.ArrayList;
 public class ItemController {
 
 
+    @Autowired
+    ItemRepo repo;
     //model attribute
     //request params
 
@@ -22,31 +28,30 @@ public class ItemController {
     @PostMapping
     public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) {
         System.out.println(dto.toString());
+        Item item = new Item(dto.getCode(),dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());
+        repo.save(item);
         return new ResponseUtil("200", "Successfully Added", null);
     }
 
     @GetMapping
     public ResponseUtil getAllItems() {
-        ArrayList<ItemDTO> allItems = new ArrayList<>();
-        allItems.add(new ItemDTO("I001", "Lux", 200, 100.00));
-        allItems.add(new ItemDTO("I002", "Signal", 100, 200.00));
-        allItems.add(new ItemDTO("I003", "Cloguard", 400, 300.00));
-        allItems.add(new ItemDTO("I004", "Sunlight", 560, 400.00));
-        allItems.add(new ItemDTO("I005", "Lux Small", 110, 500.00));
-        return new ResponseUtil("200", "Successfully Loaded", allItems);
+        List<Item> all = repo.findAll();
+        return new ResponseUtil("200", "Successfully Loaded", all);
     }
 
 
     @PutMapping
     public ResponseUtil updateItem(@RequestBody ItemDTO dto) {
         System.out.println(dto.toString());
+        Item item = new Item(dto.getCode(),dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());
+        repo.save(item);
         return new ResponseUtil("200", "Successfully Updated", null);
     }
 
 
     @DeleteMapping(params = "code")
     public ResponseUtil deleteItem(String code) {
-        System.out.println(code);
+       repo.deleteById(code);
         return new ResponseUtil("200", "Successfully Deleted", null);
     }
 
