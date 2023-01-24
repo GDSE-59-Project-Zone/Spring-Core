@@ -23,12 +23,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addCustomer(CustomerDTO dto){
+        if (repo.existsById(dto.getId())) {
+            throw new RuntimeException("Customer "+dto.getId()+" Already Exist..!");
+        }
         Customer entity = mapper.map(dto, Customer.class);
         repo.save(entity);
     }
 
     @Override
     public void deleteCustomer(String id){
+        if (!repo.existsById(id)){
+            throw new RuntimeException("Customer "+id+" Not Available to Delete..!");
+        }
         repo.deleteById(id);
     }
 
