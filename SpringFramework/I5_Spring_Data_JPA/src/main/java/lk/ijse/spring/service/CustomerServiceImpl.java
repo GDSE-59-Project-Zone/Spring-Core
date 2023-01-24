@@ -13,27 +13,31 @@ import java.util.ArrayList;
 
 @Service
 @Transactional
-public class CustomerServiceImpl {
+public class CustomerServiceImpl implements CustomerService{
     @Autowired
     CustomerRepo repo;
 
     @Autowired
     ModelMapper mapper;
 
+    @Override
     public void addCustomer(CustomerDTO dto){
         Customer entity = mapper.map(dto, Customer.class);
         repo.save(entity);
     }
 
+    @Override
     public void deleteCustomer(String id){
         repo.deleteById(id);
     }
 
+    @Override
     public void updateCustomer(CustomerDTO dto){
         Customer entity = mapper.map(dto, Customer.class);
         repo.save(entity);
     }
 
+    @Override
     public ArrayList<CustomerDTO> getAllCustomers(){
         return mapper.map(repo.findAll(), new TypeToken<ArrayList<CustomerDTO>>() {
         }.getType());

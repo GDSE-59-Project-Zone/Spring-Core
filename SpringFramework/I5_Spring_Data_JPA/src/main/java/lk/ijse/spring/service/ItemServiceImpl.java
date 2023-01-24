@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class ItemServiceImpl {
+public class ItemServiceImpl implements ItemService{
 
     @Autowired
     ItemRepo repo;
@@ -22,20 +22,24 @@ public class ItemServiceImpl {
     @Autowired
     ModelMapper mapper;
 
+    @Override
     public void addItem(ItemDTO dto){
         Item entity = mapper.map(dto, Item.class);
         repo.save(entity);
     }
 
+    @Override
     public void updateItem(ItemDTO dto){
         Item entity = mapper.map(dto, Item.class);
         repo.save(entity);
     }
 
+    @Override
     public void deleteItem(String code){
         repo.deleteById(code);
     }
 
+    @Override
     public ArrayList<ItemDTO> getAllItems(){
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<ItemDTO>>(){}.getType());
     }

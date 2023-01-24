@@ -17,7 +17,6 @@ import java.util.List;
 @CrossOrigin
 public class ItemController {
 
-
     @Autowired
     ItemServiceImpl itemService;
 
