@@ -14,16 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class PurchaseOrderController {
 
     @Autowired
-    private ModelMapper mapper;
-
-    @Autowired
     private PurchaseOrderService service;
 
     @PostMapping
     public ResponseUtil purchaseOrder(@RequestBody OrdersDTO dto) {
-        System.out.println(dto.toString());
-        Orders map = mapper.map(dto, Orders.class);
-        System.out.println(map.toString());
         service.purchaseOrder(dto);
         return new ResponseUtil("200", "Successfully Purchased.!", null);
     }
