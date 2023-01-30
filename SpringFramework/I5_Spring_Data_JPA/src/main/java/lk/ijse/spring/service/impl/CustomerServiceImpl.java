@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 
@@ -16,10 +15,10 @@ import java.util.ArrayList;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
-    CustomerRepo repo;
+    private CustomerRepo repo;
 
     @Autowired
-    ModelMapper mapper;
+    private ModelMapper mapper;
 
     @Override
     public void addCustomer(CustomerDTO dto){
@@ -40,6 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(CustomerDTO dto){
+        if (!repo.existsById(dto.getId())){
+            throw new RuntimeException("Customer "+dto.getId()+" Not Available to Update..!");
+        }
         Customer entity = mapper.map(dto, Customer.class);
         repo.save(entity);
     }

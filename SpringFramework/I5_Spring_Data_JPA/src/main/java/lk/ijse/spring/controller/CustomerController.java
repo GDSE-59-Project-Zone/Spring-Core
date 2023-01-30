@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CustomerController {
 
     @Autowired
-    CustomerService service;
+    private CustomerService service;
 
 
     @PostMapping

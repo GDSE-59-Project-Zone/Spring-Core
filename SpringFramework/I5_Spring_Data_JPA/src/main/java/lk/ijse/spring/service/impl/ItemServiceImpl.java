@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 
@@ -17,25 +16,34 @@ import java.util.ArrayList;
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
-    ItemRepo repo;
+    private ItemRepo repo;
 
     @Autowired
-    ModelMapper mapper;
+    private ModelMapper mapper;
 
     @Override
     public void addItem(ItemDTO dto){
+        if (repo.existsById(dto.getCode())) {
+            throw new RuntimeException("Item "+dto.getCode()+" Already Exist..!");
+        }
         Item entity = mapper.map(dto, Item.class);
         repo.save(entity);
     }
 
     @Override
     public void updateItem(ItemDTO dto){
+        if (!repo.existsById(dto.getCode())){
+            throw new RuntimeException("Item "+dto.getCode()+" Not Available to Update..!");
+        }
         Item entity = mapper.map(dto, Item.class);
         repo.save(entity);
     }
 
     @Override
     public void deleteItem(String code){
+        if (!repo.existsById(code)){
+            throw new RuntimeException("Item "+code+" Not Available to Delete..!");
+        }
         repo.deleteById(code);
     }
 

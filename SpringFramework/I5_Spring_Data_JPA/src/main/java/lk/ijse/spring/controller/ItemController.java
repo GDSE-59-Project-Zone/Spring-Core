@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ItemController {
 
     @Autowired
-    ItemService itemService;
+    private ItemService itemService;
 
 
     @PostMapping
