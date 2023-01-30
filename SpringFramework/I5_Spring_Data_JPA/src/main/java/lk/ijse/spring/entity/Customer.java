@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +19,7 @@ public class Customer {
     private String id;
     private String name;
     private String address;
-    private double salary;
+    private BigDecimal salary;
 
 
 }

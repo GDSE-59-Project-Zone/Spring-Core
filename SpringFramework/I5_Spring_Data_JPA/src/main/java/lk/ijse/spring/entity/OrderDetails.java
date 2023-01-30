@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +20,7 @@ public class OrderDetails {
     @Id
     private String itemCode;
     private int qty;
-    private double unitPrice;
+    private BigDecimal unitPrice;
 
     //Out-Verse
     @ManyToOne

@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +19,7 @@ public class Item {
     private String code;
     private String description;
     private int qtyOnHand;
-    private double unitPrice;
+    private BigDecimal unitPrice;
 
 
 }
