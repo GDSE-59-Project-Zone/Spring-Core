@@ -14,8 +14,8 @@ import java.util.ArrayList;
 @ToString
 public class OrdersDTO {
     private String oid;
-    private String customerID;
-    private LocalDate date;
+    private String cusID;
+    private String date;
 
     private ArrayList<OrderDetailsDTO> orderDetails;
 }
