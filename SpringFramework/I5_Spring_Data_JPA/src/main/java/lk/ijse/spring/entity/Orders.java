@@ -19,7 +19,7 @@ public class Orders {
     //Out=verse
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "customerID",referencedColumnName = "id",nullable = false)
-    private Customer customerID;
+    private Customer cusID;
     private LocalDate date;
 
     //Inverse
