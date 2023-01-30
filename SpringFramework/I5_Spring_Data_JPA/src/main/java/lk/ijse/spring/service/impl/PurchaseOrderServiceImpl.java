@@ -11,6 +11,7 @@ import lk.ijse.spring.service.PurchaseOrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.util.Optional;
 
@@ -37,22 +38,32 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
         //check order already available
         if (ordersRepo.existsById(orders.getOid())) {
-            throw new RuntimeException("Order : "+orders.getOid()+" Already Available.!");
+            throw new RuntimeException("Order : " + orders.getOid() + " Already Available.!");
         }
+        //save order and order details
+        //if an error occur all transactions will be rolled backed
         ordersRepo.save(orders);
 
 
         for (OrderDetails od : orders.getOrderDetails()) {
-            //find and update item
+            //find and update item qty on hand
+
             Optional<Item> resp = itemRepo.findById(od.getItemCode());
-            if (!resp.isPresent()){
-                throw new RuntimeException(od.getItemCode()+ ": Item Not Available On the Database.!");
+            if (!resp.isPresent()) {
+                throw new RuntimeException(od.getItemCode() + ": Item Not Available On the Database.!");
             }
 
             Item item = resp.get();
-            item.setQtyOnHand((item.getQtyOnHand()-od.getQty()));
+            item.setQtyOnHand((item.getQtyOnHand() - od.getQty()));
             itemRepo.save(item);
         }
 
     }
+
+    @Override
+    public OrdersDTO searchOrder(String oid) {
+        return mapper.map(ordersRepo.findById(oid), OrdersDTO.class);
+    }
+
+
 }

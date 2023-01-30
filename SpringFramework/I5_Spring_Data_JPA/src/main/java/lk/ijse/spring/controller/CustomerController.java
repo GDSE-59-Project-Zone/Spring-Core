@@ -21,24 +21,24 @@ public class CustomerController {
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto){
         service.addCustomer(dto);
-        return new ResponseUtil("200",dto.toString()+ " Added",null);
+        return new ResponseUtil("200",dto.getId()+ " Added.!",null);
     }
 
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
         service.updateCustomer(dto);
-        return new ResponseUtil("200",dto.toString()+" Updated",null);
+        return new ResponseUtil("200",dto.getId()+": Updated.!",null);
     }
 
     @DeleteMapping(params = "id")
     public ResponseUtil deleteCustomer(String id){
         service.deleteCustomer(id);
-        return new ResponseUtil("200",id+" Deleted",null);
+        return new ResponseUtil("200",id+" : Deleted.!",null);
     }
 
     @GetMapping
     public ResponseUtil getAllCustomer(){
         ArrayList<CustomerDTO> allCustomers = service.getAllCustomers();
-        return new ResponseUtil("200"," Success",allCustomers);
+        return new ResponseUtil("200"," Success.!",allCustomers);
     }
 }

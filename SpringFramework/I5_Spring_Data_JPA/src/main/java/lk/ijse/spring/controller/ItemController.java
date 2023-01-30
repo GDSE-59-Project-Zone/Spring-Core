@@ -20,27 +20,27 @@ public class ItemController {
     @PostMapping
     public ResponseUtil saveItem(@ModelAttribute ItemDTO dto) {
         itemService.addItem(dto);
-        return new ResponseUtil("200", "Successfully Added", null);
+        return new ResponseUtil("200", dto.getCode()+" : Successfully Added.!", null);
     }
 
     @GetMapping
     public ResponseUtil getAllItems() {
         ArrayList<ItemDTO> allItems = itemService.getAllItems();
-        return new ResponseUtil("200", "Successfully Loaded", allItems);
+        return new ResponseUtil("200", "Successfully Loaded.!", allItems);
     }
 
 
     @PutMapping
     public ResponseUtil updateItem(@RequestBody ItemDTO dto) {
         itemService.updateItem(dto);
-        return new ResponseUtil("200", "Successfully Updated", null);
+        return new ResponseUtil("200", dto.getCode()+ " : Successfully Updated", null);
     }
 
 
     @DeleteMapping(params = "code")
     public ResponseUtil deleteItem(String code) {
         itemService.deleteItem(code);
-        return new ResponseUtil("200", "Successfully Deleted", null);
+        return new ResponseUtil("200", code+ " : Successfully Deleted", null);
     }
 
 

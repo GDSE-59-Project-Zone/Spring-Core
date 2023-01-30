@@ -26,8 +26,7 @@ public class ItemServiceImpl implements ItemService {
         if (repo.existsById(dto.getCode())) {
             throw new RuntimeException("Item "+dto.getCode()+" Already Exist..!");
         }
-        Item entity = mapper.map(dto, Item.class);
-        repo.save(entity);
+        repo.save(mapper.map(dto, Item.class));
     }
 
     @Override
@@ -35,8 +34,7 @@ public class ItemServiceImpl implements ItemService {
         if (!repo.existsById(dto.getCode())){
             throw new RuntimeException("Item "+dto.getCode()+" Not Available to Update..!");
         }
-        Item entity = mapper.map(dto, Item.class);
-        repo.save(entity);
+        repo.save(mapper.map(dto, Item.class));
     }
 
     @Override

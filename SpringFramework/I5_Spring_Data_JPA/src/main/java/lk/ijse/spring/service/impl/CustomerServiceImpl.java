@@ -25,8 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (repo.existsById(dto.getId())) {
             throw new RuntimeException("Customer "+dto.getId()+" Already Exist..!");
         }
-        Customer entity = mapper.map(dto, Customer.class);
-        repo.save(entity);
+        repo.save(mapper.map(dto, Customer.class));
     }
 
     @Override
@@ -42,8 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (!repo.existsById(dto.getId())){
             throw new RuntimeException("Customer "+dto.getId()+" Not Available to Update..!");
         }
-        Customer entity = mapper.map(dto, Customer.class);
-        repo.save(entity);
+        repo.save( mapper.map(dto, Customer.class));
     }
 
     @Override
