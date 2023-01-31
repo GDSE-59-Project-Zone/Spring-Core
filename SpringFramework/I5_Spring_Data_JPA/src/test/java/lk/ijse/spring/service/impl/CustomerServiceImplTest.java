@@ -30,6 +30,7 @@ class CustomerServiceImplTest {
         CustomerDTO customerDTO1 = new CustomerDTO("C001","Dasun Anjana","Galle",2000);
 
         assertThrows(RuntimeException.class,()->{
+            //This test case will be ok if line thorws an error
             customerService.addCustomer(customerDTO1);
         });
 
@@ -37,6 +38,7 @@ class CustomerServiceImplTest {
         //let's enter valid data and then check there are errors or not
         CustomerDTO customerDTO2 = new CustomerDTO("C008","Dasun Anjana","Galle",2000);
         assertDoesNotThrow(()->{
+            //this test case will be ok if this line does not throw an error
             customerService.addCustomer(customerDTO2);
         });
     }
