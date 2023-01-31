@@ -24,7 +24,11 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     Customer streamByName(String name);
 
 
+    //countBy query methods return long type data
+    Long countByName(String name);
 
+    //if a query Method start with existBy then you should return a boolean
+    Boolean existsByAddress(String address);
 
 
 
@@ -34,17 +38,17 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     //You can start your query methods using following keyword
     //By using them you can expect a return type of single record or data collection
 
-    //findBy (findCustomerBy)
-    //readBy (readCustomerBy)
-    //getBy (getCustomerBy)
-    //queryBy (queryCustomerBy)
-    //searchBy (searchCustomerBy)
-    //streamBy (streamCustomerBy)
+    //findBy (findCustomerBy) (return entity or collection)
+    //readBy (readCustomerBy) (return entity or collection)
+    //getBy (getCustomerBy) (return entity or collection)
+    //queryBy (queryCustomerBy) (return entity or collection)
+    //searchBy (searchCustomerBy) (return entity or collection)
+    //streamBy (streamCustomerBy) (return entity or collection)
 
 
 
-    //countBy (countCustomerBy)
-    //existBy (existCustomerBy)
+    //countBy (countCustomerBy) (return long)
+    //existBy (existCustomerBy) (return boolean)
 
     //deleteBy (deleteCustomerBy)
     //removeBy (removeCustomerBy)

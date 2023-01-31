@@ -63,4 +63,16 @@ class CustomerRepoTest {
         System.out.println(data6.toString());
     }
 
+    @Test
+    public void testFour() {
+        Long count = customerRepo.countByName("Dasun Perera");
+        System.out.println(count);
+    }
+
+    @Test
+    public void testFive() {
+        Boolean response = customerRepo.existsByAddress("Galle");
+        System.out.println(response);
+    }
+
 }
