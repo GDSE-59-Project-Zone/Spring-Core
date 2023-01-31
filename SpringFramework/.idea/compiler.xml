@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="I3_SpringWithMaven" />
         <module name="I5_Spring_Data_JPA" />
+        <module name="I6_Spring_Boot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
