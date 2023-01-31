@@ -57,25 +57,33 @@ class CustomerRepoTest {
         Customer data3 = customerRepo.getByName("Thamalsha");
         Customer data4 = customerRepo.queryByName("Thamalsha");
         Customer data5 = customerRepo.searchByName("Thamalsha");
-        Customer data6 = customerRepo.streamByName("Thamalsha");
+        Customer data6 = customerRepo.streamByName("dThamalsha");
+        assertNull(data6);
 //        System.out.println(data1.toString());
         System.out.println(data2.toString());
         System.out.println(data3.toString());
         System.out.println(data4.toString());
         System.out.println(data5.toString());
-        System.out.println(data6.toString());
+//        System.out.println(data6.toString());
     }
 
     @Test
     public void testFour() {
         Long count = customerRepo.countByName("Dasun Perera");
         System.out.println(count);
+
     }
 
     @Test
     public void testFive() {
-        Boolean response = customerRepo.existsByAddress("Galle");
-        System.out.println(response);
+
+        Boolean response1 = customerRepo.existsByAddress("Galle");
+        assertTrue(response1);// this expects a true value, otherwise test case is false
+
+
+        Boolean response2 = customerRepo.existsByAddress("Colombo");
+        assertFalse(response2);// this expects a false value, otherwise test case is false
+
     }
 
 
