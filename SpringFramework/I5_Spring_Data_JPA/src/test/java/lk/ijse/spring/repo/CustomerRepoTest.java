@@ -11,6 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -19,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @WebAppConfiguration
 @ContextConfiguration(classes = {WebRootConfig.class}) // for test context configurations
 @ExtendWith(SpringExtension.class)
+@Transactional
 class CustomerRepoTest {
 
     @Autowired
@@ -27,7 +30,7 @@ class CustomerRepoTest {
 
     @Test
     public void addCustomer(){
-        Customer customer = new Customer("C004","Dasun Perera","Galle",new BigDecimal(100));
+        Customer customer = new Customer("C001","Dasun Perera","Galle",new BigDecimal(100));
         customerRepo.save(customer);
     }
 
@@ -73,6 +76,13 @@ class CustomerRepoTest {
     public void testFive() {
         Boolean response = customerRepo.existsByAddress("Galle");
         System.out.println(response);
+    }
+
+
+    @Test
+    public void testSix() {
+//        customerRepo.removeByName("Dasun Perera");
+        customerRepo.deleteByName("Dasun Perera");
     }
 
 }

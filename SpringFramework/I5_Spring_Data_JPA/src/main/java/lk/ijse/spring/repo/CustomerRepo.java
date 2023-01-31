@@ -6,6 +6,26 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CustomerRepo extends JpaRepository<Customer,String> {
+    //Query Methods initial keywords
+    //Single entity or List type entity
+
+    //You can start your query methods using following keyword
+    //By using them you can expect a return type of single record or data collection
+
+    //findBy (findCustomerBy) (return entity or collection)
+    //readBy (readCustomerBy) (return entity or collection)
+    //getBy (getCustomerBy) (return entity or collection)
+    //queryBy (queryCustomerBy) (return entity or collection)
+    //searchBy (searchCustomerBy) (return entity or collection)
+    //streamBy (streamCustomerBy) (return entity or collection)
+
+    //countBy (countCustomerBy) (return long)
+    //existBy (existCustomerBy) (return boolean)
+
+    //deleteBy (deleteCustomerBy)
+    //removeBy (removeCustomerBy)
+
+
     Customer findCustomerByName(String name);// Query Methods
     Customer findByNameAndAddress(String name,String address);
 
@@ -32,26 +52,12 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
 
 
-    //Query Methods initial keywords
-    //Single entity or List type entity
+    void deleteByName(String name);
 
-    //You can start your query methods using following keyword
-    //By using them you can expect a return type of single record or data collection
-
-    //findBy (findCustomerBy) (return entity or collection)
-    //readBy (readCustomerBy) (return entity or collection)
-    //getBy (getCustomerBy) (return entity or collection)
-    //queryBy (queryCustomerBy) (return entity or collection)
-    //searchBy (searchCustomerBy) (return entity or collection)
-    //streamBy (streamCustomerBy) (return entity or collection)
+    void removeByName(String name);
 
 
 
-    //countBy (countCustomerBy) (return long)
-    //existBy (existCustomerBy) (return boolean)
-
-    //deleteBy (deleteCustomerBy)
-    //removeBy (removeCustomerBy)
 
 
 }
