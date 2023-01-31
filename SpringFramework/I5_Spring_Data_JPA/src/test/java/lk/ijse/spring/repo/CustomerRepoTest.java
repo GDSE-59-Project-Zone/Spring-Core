@@ -12,6 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,8 +34,10 @@ class CustomerRepoTest {
 
     @Test
     public void testOne() {
-        Customer data = customerRepo.findCustomerByName("Dasun Perera");
-        System.out.println(data.toString());
+        List<Customer> dasunPerera = customerRepo.findByName("Dasun Perera");
+        for (Customer customer : dasunPerera) {
+            System.out.println(customer.toString());
+        }
     }
 
     @Test
@@ -46,13 +49,13 @@ class CustomerRepoTest {
 
     @Test
     public void testThree() {
-        Customer data1 = customerRepo.findByName("Thamalsha");
+//        Customer data1 = customerRepo.findByName("Thamalsha");
         Customer data2 = customerRepo.readByName("Thamalsha");
         Customer data3 = customerRepo.getByName("Thamalsha");
         Customer data4 = customerRepo.queryByName("Thamalsha");
         Customer data5 = customerRepo.searchByName("Thamalsha");
         Customer data6 = customerRepo.streamByName("Thamalsha");
-        System.out.println(data1.toString());
+//        System.out.println(data1.toString());
         System.out.println(data2.toString());
         System.out.println(data3.toString());
         System.out.println(data4.toString());
