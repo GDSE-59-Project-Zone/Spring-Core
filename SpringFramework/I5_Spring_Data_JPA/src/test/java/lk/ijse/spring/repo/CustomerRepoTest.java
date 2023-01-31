@@ -107,4 +107,14 @@ class CustomerRepoTest {
 
     }
 
+    @Test
+    public void testNine(){
+        Customer thamalsha = customerRepo.jpqlTestQuery("Thamalsha");
+        System.out.println(thamalsha.toString());
+
+        Customer thamalsha1 = customerRepo.hqlTestQuery("Thamalsha");
+        System.out.println(thamalsha1);
+
+    }
+
 }

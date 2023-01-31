@@ -91,6 +91,14 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     Customer testOneNativeQueryWithNameP2(@Param("n") String name, @Param("a") String address);
 
 
+    //JPQL
+    @Query(value = "select u from Customer u where u.name=:name")
+    Customer jpqlTestQuery(@Param("name")String name);
+
+    //HQL
+    @Query(value = "from Customer c where c.name=:name")
+    Customer hqlTestQuery(@Param("name")String name);
+
 
 
 
