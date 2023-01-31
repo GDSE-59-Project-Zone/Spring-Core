@@ -26,8 +26,19 @@ class CustomerServiceImplTest {
     public CustomerService customerService;
     @Test
     public void testCustomerSave(){
-        CustomerDTO customerDTO = new CustomerDTO("C008","Dasun Anjana","Galle",2000);
-        customerService.addCustomer(customerDTO);
+        //If I try to add existing customer. if validation work there should be an error
+        CustomerDTO customerDTO1 = new CustomerDTO("C001","Dasun Anjana","Galle",2000);
+
+        assertThrows(RuntimeException.class,()->{
+            customerService.addCustomer(customerDTO1);
+        });
+
+
+        //let's enter valid data and then check there are errors or not
+        CustomerDTO customerDTO2 = new CustomerDTO("C008","Dasun Anjana","Galle",2000);
+        assertDoesNotThrow(()->{
+            customerService.addCustomer(customerDTO2);
+        });
     }
 
 }
