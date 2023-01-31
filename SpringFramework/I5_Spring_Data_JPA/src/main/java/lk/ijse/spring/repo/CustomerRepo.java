@@ -3,6 +3,7 @@ package lk.ijse.spring.repo;
 import lk.ijse.spring.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -76,8 +77,21 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
 
     //Positions Params
+    //set the parameters using the method parameter position
+    //name is in the first place ?1
+    //address is in the second place ?2
     @Query(value = "select * from Customer where name=?1 and address=?2",nativeQuery = true)
     Customer testOneNativeQueryWithNameP1(String name,String address);
+
+
+    //Named Params
+    //set the parameters using the method parameter names
+    //@Param is required to map param name and named param in the query
+    @Query(value = "select * from Customer where name=:n and address=:a",nativeQuery = true)
+    Customer testOneNativeQueryWithNameP2(@Param("n") String name, @Param("a") String address);
+
+
+
 
 
 }

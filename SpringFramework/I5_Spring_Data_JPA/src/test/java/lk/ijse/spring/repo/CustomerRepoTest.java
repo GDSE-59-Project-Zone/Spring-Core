@@ -99,7 +99,10 @@ class CustomerRepoTest {
 
     @Test
     public void testEight(){
-        Customer customer = customerRepo.testOneNativeQueryWithNameP1("Thamalsha","Mathara");
+//        Customer customer = customerRepo.testOneNativeQueryWithNameP1("Thamalsha","Mathara");
+//        System.out.println(customer.toString());
+
+        Customer customer = customerRepo.testOneNativeQueryWithNameP2("Thamalsha","Mathara");
         System.out.println(customer.toString());
 
     }
