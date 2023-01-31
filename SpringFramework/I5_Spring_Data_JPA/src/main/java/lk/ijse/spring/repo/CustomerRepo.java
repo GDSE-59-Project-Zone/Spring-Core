@@ -70,7 +70,14 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     @Query(value = "select * from Customer where name='Thamalsha'",nativeQuery = true)
     Customer testOneNativeQueryWithName();
 
+    //Params
+    //Positional Params
+    //Named Params
 
+
+    //Positions Params
+    @Query(value = "select * from Customer where name=?1 and address=?2",nativeQuery = true)
+    Customer testOneNativeQueryWithNameP1(String name,String address);
 
 
 }
