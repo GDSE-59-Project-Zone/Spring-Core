@@ -17,5 +17,4 @@ public class AppWideExceptionHandler {
         return new ResponseUtil("500",e.getMessage(),null);
     }
 
-
 }

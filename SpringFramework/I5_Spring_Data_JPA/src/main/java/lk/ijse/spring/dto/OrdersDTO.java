@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class OrdersDTO {
     private String oid;
     private String cusID;
-    private String date;
+    private LocalDate date;
 
     private ArrayList<OrderDetailsDTO> orderDetails;
 }
