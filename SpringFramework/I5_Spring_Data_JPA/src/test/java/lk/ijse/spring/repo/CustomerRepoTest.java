@@ -27,7 +27,6 @@ class CustomerRepoTest {
     @Autowired
     CustomerRepo customerRepo;
 
-
     @Test
     public void addCustomer(){
         Customer customer = new Customer("C001","Dasun Perera","Galle",new BigDecimal(100));
