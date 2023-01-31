@@ -4,5 +4,8 @@ import lk.ijse.spring.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepo extends JpaRepository<Customer,String> {
-    Customer findCustomerByName(String name);
+    Customer findCustomerByName(String name);// Query Methods
+    Customer findCustomerByNameAndAddress(String name,String address);
+
+
 }
