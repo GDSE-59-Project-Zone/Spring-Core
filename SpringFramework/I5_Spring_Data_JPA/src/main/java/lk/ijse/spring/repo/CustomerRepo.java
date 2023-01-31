@@ -21,12 +21,16 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
     //Query Methods initial keywords
     //Single entity or List type entity
 
+    //You can start your query methods using following keyword
+    //By using them you can expect a return type of single record or data collection
+
     //findBy (findCustomerBy)
     //readBy (readCustomerBy)
     //getBy (getCustomerBy)
     //queryBy (queryCustomerBy)
     //searchBy (searchCustomerBy)
     //streamBy (streamCustomerBy)
+
 
 
     //countBy (countCustomerBy)
