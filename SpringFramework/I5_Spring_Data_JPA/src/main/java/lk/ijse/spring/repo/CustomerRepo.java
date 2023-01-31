@@ -2,6 +2,7 @@ package lk.ijse.spring.repo;
 
 import lk.ijse.spring.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -56,6 +57,18 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
     void removeByName(String name);
 
+
+    //How to write a query using jpa repository.?
+
+    //query (Native SQL, JPQL , HQL)
+
+
+    //Native SQL
+    @Query(value = "select * from Customer",nativeQuery = true)
+    List<Customer> testOneNativeQuery();
+
+    @Query(value = "select * from Customer where name='Thamalsha'",nativeQuery = true)
+    Customer testOneNativeQueryWithName();
 
 
 

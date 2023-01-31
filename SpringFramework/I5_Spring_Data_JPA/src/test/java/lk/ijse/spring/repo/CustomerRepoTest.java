@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @WebAppConfiguration
 @ContextConfiguration(classes = {WebRootConfig.class}) // for test context configurations
 @ExtendWith(SpringExtension.class)
-@Transactional
+@Transactional // stop submitting actual data to the database
 class CustomerRepoTest {
 
     @Autowired
@@ -81,8 +81,20 @@ class CustomerRepoTest {
 
     @Test
     public void testSix() {
-//        customerRepo.removeByName("Dasun Perera");
+        customerRepo.removeByName("Dasun Perera");
         customerRepo.deleteByName("Dasun Perera");
+    }
+
+    @Test
+    public void testSeven(){
+        List<Customer> customers = customerRepo.testOneNativeQuery();
+        for (Customer customer : customers) {
+            System.out.println(customer.toString());
+        }
+        System.out.println("============");
+        Customer customer = customerRepo.testOneNativeQueryWithName();
+        System.out.println(customer.toString());
+
     }
 
 }
